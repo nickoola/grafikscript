@@ -1,0 +1,138 @@
+/* This File Contains All Responsive CSS - Sweet! */
+
+/* Custom Drop-Down
+================================================== */
+/*
+#masternav .selector option{ background:#eee; -webkit-appearance:none; padding: 5px; }
+#masternav .selector, 
+#masternav .selector span{ cursor: pointer !important; -webkit-font-smoothing:antialiased; }
+#masternav .selector, 
+#masternav .selector *{ margin:0; padding:0; }
+#masternav .selector select{ top:0px; left:0px; }
+#masternav .selector{ width: 100%; font-size:12px;  font-weight:bold; }
+#masternav .selector span:after { padding-left: 5px; padding-right: 5px; content: "\f078"; font-family: 'FontAwesome'; }
+#masternav .selector span{ cursor:pointer; }
+#masternav .selector{ height: 30px; line-height: 30px; display:-moz-inline-box;  display:inline-block;  vertical-align:middle;  zoom:1;  *display:inline; }
+#masternav .selector select:focus{outline:0; }
+#masternav .selector{ position:relative;  padding-left:10px;  overflow:hidden; }
+#masternav .selector span{ display:block;  overflow:hidden;  text-overflow:ellipsis;  white-space:nowrap; }
+#masternav .selector select{ position:absolute;  height:35px;  background:none;  width:97%; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;  font-size:12px;  font-weight:500;  border:0 !important; }
+*/
+
+/* General
+================================================== */
+img{ max-width: 100%; }
+
+/*hide redundant menu*/
+#masternav select {
+	display: none;
+	width: 85%;
+	float: right;
+	margin-top: 1em;
+}
+
+/* Apply To All Responsive Layouts
+================================================== */
+@media only screen and (device-width: 768px) {
+
+	
+}
+
+/* #Tablet (Portrait)
+================================================== */
+
+/* Note: Design for a width of 740px */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	/*#wrap{ width: 680px; }*/
+	.hp-highlight, .home-entry, #footer-one,#footer-two,#footer-three,#footer-four{ width: 155px; }
+	#home-tagline{ font-size: 21px; }
+	.loop-entry-thumbnail{width: 35%;}
+
+}
+
+/*  #Mobile (Portrait)
+================================================== */
+
+/* Note: Design for a width of 290px */
+@media only screen and (max-width: 768px) {
+
+	#masterhead,
+	#main,
+	#footer { 
+		padding-left: 5%;
+		padding-right: 5%;  
+	}
+
+	#masterhead { margin-bottom: 20px; }
+
+	.post, #sidebar{ width: 100%; }
+
+	#sidebar{
+		margin-top: 20px;
+		padding-top: 20px;
+		border-top: 7px solid #222;
+	}
+	
+	/*display dropdown nav*/
+	#masternav ul { display: none; }
+	#masternav .selector,
+	#masternav select {
+		display: inline-block;
+	}
+
+	#page-heading { margin-bottom: 20px; }
+
+	.hp-highlight, .home-entry { width: 230px; margin-right: auto; margin-left: auto; }
+	
+	#home-tagline{ font-size: 16px; }
+	
+	ul.filter{ position: inherit; margin-top: 10px; margin-bottom: 0px; top: 0; left: 0; }
+	ul.filter li{ margin-top: 10px; }
+	
+	
+	.loop-entry-meta { display: none; }
+	.loop-entry h2 { margin-bottom: 10px; }
+	
+	#single-portfolio {
+		padding-top: 1%;
+	}
+
+	#single-portfolio-left,
+	#single-portfolio-right {
+		float: none;
+		width: 96%;
+	}
+
+	.children li{ margin: 0 !important; }
+	
+	#copyright,#back-to-top{ float: none; width: 100%; text-align: center; }
+	
+	.one-half, .one-third, .two-third, .one-fourth, .three-fourth, .one-fifth, .one-sixth {width: 100%; float: none;} 
+}
+
+@media only screen and (max-width: 890px) {
+	#search,
+	#searchbt {
+		width: 100%;
+	}
+
+	#searchbt {
+		margin-top: 2px;
+	}
+}
+
+/* #Mobile (Landscape)
+================================================== */
+
+/* Note: Design for a width of 420px */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	
+	/*#wrap{ width: 420px; }*/
+	.hp-highlight, .home-entry { width: 200px; margin-right: 20px; }
+	
+	.responsive-clear { clear: both; }
+	
+	.loop-entry-thumbnail{width: 33%;}
+	
+	ul.filter{ margin-bottom: 0; }
+}
