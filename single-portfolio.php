@@ -20,9 +20,9 @@
     </header>
     <!-- /page-heading -->
     
-    <div id="single-portfolio" class="post full-width clearfix">
+    <div id="single-portfolio" class="post row-fluid clearfix">
         
-        <div id="single-portfolio-left">
+        <div id="single-portfolio-left" class="span8">
             <div class="viewer_container">
                 <div id="project_slider" class="viewer">
                     <?php   
@@ -75,7 +75,7 @@
         </div>
         <!-- /single-portfolio-left -->
         
-        <div id="single-portfolio-right" class="clearfix">
+        <div id="single-portfolio-right" class="span4">
             <?php the_content(); ?>
         </div>
         <!-- /single-portfolio-right -->

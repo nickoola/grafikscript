@@ -13,26 +13,28 @@
 	<h1><?php the_title(); ?></h1>		
 </header>
 
-<div class="post clearfix">
+<div class="row-fluid">
+    <div class="post span9 clearfix">
 
-<?php
-    //query posts
-        query_posts(
-            array(
-            'post_type'=> 'post',
-            'paged'=>$paged
-        ));
-    ?>
-	<?php if (have_posts()) : ?>              
-        	<?php get_template_part( 'loop', 'entry') ?>                	
-    <?php endif; ?>       
-	<?php pagination(); wp_reset_query(); ?>
+    <?php
+        //query posts
+            query_posts(
+                array(
+                'post_type'=> 'post',
+                'paged'=>$paged
+            ));
+        ?>
+    	<?php if (have_posts()) : ?>              
+            	<?php get_template_part( 'loop', 'entry') ?>                	
+        <?php endif; ?>       
+    	<?php pagination(); wp_reset_query(); ?>
 
+    </div>
+    <!-- /post -->
+
+    <?php endwhile; ?>
+    <?php endif; ?>
+
+    <?php get_sidebar(); ?>
 </div>
-<!-- /post -->
-
-<?php endwhile; ?>
-<?php endif; ?>
-
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

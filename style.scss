@@ -1,0 +1,510 @@
+/*-----------------------------------------------------------
+
+	Theme Name: Grafikscript
+	Description: Site sur le webdesign et l'integration
+	Author: Nicolas Esneault
+	Author URI: http://themeforest.net/user/WPExplorer?ref=wpexplorer
+	Version: 1
+	
+*/
+
+/*google font*/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800);
+
+$grey:#222;
+$lightgrey:#eaeaea;
+$blue:#2ab3ef;
+
+@mixin floatleft($dist) {
+    float: left;
+    margin-left: $dist;
+}
+
+@mixin floatright($dist) {
+    float: right;
+    margin-right: $dist;
+}
+
+@mixin anim-bg-color($time) {
+    -moz-transition: background-color $time ease-in-out; /* Firefox 4 */
+    -webkit-transition: background-color $time ease-in-out; /* Safari and Chrome */
+    -o-transition: background-color $time ease-in-out; /* Opera */
+    -ms-transition: background-color $time ease-in-out; /* Opera */
+    transition: background-color $time ease-in-out;
+}
+
+body {
+    color: $grey;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    background: url(images/bg.png) center center $lightgrey fixed;
+}
+
+body a {
+    color: $blue;
+}
+
+/* header/footer */
+#masterhead,
+#footer {
+    color: #fff;
+    background: $grey;
+}
+
+/* header */
+#masterhead {
+    position: relative;
+    margin-bottom: 3.125em;/* 50px / 16px */
+    border-bottom: 12px solid $blue;
+}
+
+#logo a {
+    @include floatleft(0);
+    color: #fff;
+    font-size: 0.75em; /* 12px / 16px */
+    height: 4.4em;
+    line-height: 4.4em;
+    margin-right: 1%;
+}
+
+/* masternav */
+
+#masternav {
+    font-size: 0.75em; /* 12px / 16px */
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#masternav ul,
+.sidebar-box ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+#masternav li {
+    display: inline;
+}
+
+#masternav a {
+    @include floatleft(0);
+    height: 4.4em;
+    line-height: 4.4em;
+    padding: 0 1%;
+    color: #fff;
+    background-color: $grey;
+    @include anim-bg-color(0.4s);
+}
+
+#masternav a:hover,
+#masternav .current-menu-item a,
+#masternav .current_page_item a {
+    background-color: $blue;
+    text-decoration: none;
+}
+
+/* tagcloud */
+.tagcloud a {
+    margin-bottom: 0.5em; /* 8px / 16px */
+    margin-right: 0.5em;
+}
+
+/* heading */
+
+#page-heading {
+    position: relative;
+    margin-bottom: 30px;
+    border-bottom: 7px solid $grey;
+}
+#page-heading h1,
+#page-heading h2 {
+    margin: 0;
+    line-height: 1.25em;
+    font-size: 1.25em;/* 20px / 16px */
+    font-weight: lighter;
+    text-transform: uppercase;
+}
+
+/*-----------------------------------------------------------------------------------*
+/* = Sidebar
+/*-----------------------------------------------------------------------------------*/
+.sidebar-box {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #a7a7a7;
+}
+.sidebar-box h3,
+.sidebar-box h4 {
+    margin-top: 0;
+    margin-bottom: 4px;
+    padding: 5px 10px;
+    font-size: 0.75em; /* 12px / 16px */
+    line-height: auto;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    background-color: #222;
+}
+.sidebar-box ul a {
+    display: block;
+    padding: 2px 10px;
+    font-size: 0.6875em; /* 11px / 16px */
+    color: #fff;
+    text-transform: uppercase;
+    border-left: 3px solid $blue;
+    background-color: lighten($grey,10%);
+    -moz-transition: border-left-width 0.4s ease-in-out, background-color 0.4s ease-in-out; /* Firefox 4 */
+    -webkit-transition: border-left-width 0.4s ease-in-out, background-color 0.4s ease-in-out; /* Safari and Chrome */
+    -o-transition: border-left-width 0.4s ease-in-out, background-color 0.4s ease-in-out; /* Opera */
+    -ms-transition: border-left-width 0.4s ease-in-out, background-color 0.4s ease-in-out; /* ie */
+    transition: border-left-width 0.4s ease-in-out, background-color 0.4s ease-in-out;
+}
+
+.sidebar-box ul a:hover,
+.sidebar-box .current-cat a {
+    border-left-width: 20px;
+    background-color: $grey;
+    text-decoration: none;
+}
+
+.sidebar-box #recentcomments {
+    font-size: 0.6875em;
+}
+
+.sidebar-box #recentcomments a {
+    color: $blue;
+    background: none;
+    text-transform: none;
+    border: none;
+    font-size: inherit;
+}
+
+.sidebar-box #recentcomments a:hover {
+    text-decoration: underline;
+}
+
+/* footer */
+
+#footer {
+    position: relative;
+    color: darken(#fff,20%);
+    background: #222;
+}
+.footer-widget {
+    padding-bottom: 0.9375em; /* 15px / 16px */
+}
+#footer h3,
+#footer h4 {
+    padding-bottom: 5px;
+    font-size: 0.875em; /* 14px / 16px */
+    color: #fff;
+    border-bottom: 1px solid #444;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.footer-widget p {
+    font-size: 0.75em; /* 12px / 16px */
+    margin-bottom: 0;
+}
+
+/*footer bottom*/
+
+#footer-bottom {
+    padding: 0.6875em 0; /* 10px / 16px */
+    border-top: 1px solid #333;
+}
+#copyright,
+#back-to-top {
+    font-size: 0.625em; /* 11px / 16px */
+}
+#copyright {
+    float: left;
+    width: 70%;
+    color: #666;
+}
+#back-to-top {
+    width: 20%;
+    float: right;
+    text-align: right;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* = Image Slider
+/*-----------------------------------------------------------------------------------*/
+
+.viewer,
+.viewer_list {
+    position: relative;
+}
+
+.viewer {
+    width: 100%;
+    margin: 0 auto 20px;
+    background: #222;
+    border: 5px solid #222;
+    border-radius: 3px;
+    -moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+    box-shadow: inset 0 0 2px rgba(0,0,0,0.75);
+}
+
+.viewer ul {
+    list-style-type: none;
+}
+
+.wait,
+.fading li {
+    -webkit-transition: visibility 0.5s, opacity 0.5s ease-in-out;
+    -moz-transition: visibility 0.5s, opacity 0.5s ease-in-out;
+    -o-transition: visibility 0.5s, opacity 0.5s ease-in-out;
+    -ms-transition: visibility 0.5s, opacity 0.5s ease-in-out;
+    transition: visibility 0.5s, opacity 0.5s ease-in-out;
+}
+
+.wait {
+    position: absolute;
+}
+
+.viewer .wait {
+    display: block;
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    left: 50%;
+    margin-left: -12px;
+    margin-top: -12px;
+    color: #fff;
+    text-align: center;
+    visibility: visible;
+    background: url(images/loader_white_24.gif) center center no-repeat;
+    overflow: hidden;
+    text-indent: -9000px;
+    border-radius: 2px;
+}
+
+.fading li {
+    width: 100%;
+    float: left;
+    margin-right: -100%;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.viewer_list, {
+    width: 50%;
+    
+}
+
+.viewer_list img {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.viewer_list span {
+    display: block;
+    color: #fff;
+}
+
+.js .viewer_list.fading span {
+    display: none;
+}
+
+.viewer_list .fade_out,
+.viewer_list .fade_in {
+    left: 0;
+}
+
+.viewer_list .fade_out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.viewer_list .fade_in {
+    opacity: 1;
+    visibility: visible;
+}
+
+.viewer_menu li,
+.viewer_position {
+    display: inline;
+}
+
+.viewer_position {
+	position: absolute;
+	width: 100%;
+	bottom: -25px;
+	left: 0;
+	text-align: center;
+}
+
+.viewer_position a {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background-color: #3F3F3F;
+	text-indent: -9999px;
+	overflow: hidden;
+	-moz-transition: background-color 0.2s ease-in-out; /* Firefox 4 */
+	-webkit-transition: background-color 0.2s ease-in-out; /* Safari and Chrome */
+	-o-transition: background-color 0.2s ease-in-out; /* Opera */
+	-ms-transition: background-color 0.2s ease-in-out;
+	transition: background-color 0.2s ease-in-out;
+}
+
+.viewer_position .active a,
+.viewer_position a:hover {
+    background-color: #2AB3EF;
+}
+
+.viewer_menu .bt_play,
+.viewer_menu .bt_prev,
+.viewer_menu .bt_next {
+    display: none;
+}
+
+.js .viewer_menu .bt_play {
+    display: block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    text-indent: -9999px;
+    overflow: hidden;
+    background-color: #222;
+    opacity: 0.75;
+    z-index: 10;
+    -moz-transition: opacity 0.2s ease-in-out, width 0.2s ease-in-out; /* Firefox 4 */
+	-webkit-transition: opacity 0.2s ease-in-out, width 0.2s ease-in-out; /* Safari and Chrome */
+	-o-transition: opacity 0.2s ease-in-out, width 0.2s ease-in-out; /* Opera */
+	-ms-transition: opacity 0.2s ease-in-out, width 0.2s ease-in-out;
+	transition: opacity 0.2s ease-in-out, width 0.2s ease-in-out;
+}
+
+.js .viewer_menu .bt_play:hover,
+.js .viewer_menu .bt_play.play {
+    background-color: #2AB3EF;
+    opacity: 1;
+}
+
+.js .viewer_menu .bt_play:after {
+    content: "";
+    display: block;
+    position: absolute;
+}
+
+.js .viewer_menu .bt_play.stop:after {
+    height: 8px;
+    width: 8px;
+    top: 50%;
+    left: 50%;
+    margin-top: -4px;
+    margin-left: -4px;
+    background-color: #fff;
+}
+
+.js .viewer_menu .bt_play.play:after {
+	height: 0;
+    width: 0;
+    top: 2px;
+    left: 7px;
+    border: solid transparent;
+    border-width: 8px;
+    border-left-color: #fff;
+}
+
+.js .viewer_menu .bt_prev,
+.js .viewer_menu .bt_next {
+    display: block;
+    position: absolute;
+    width: 12px;
+    height: 37px;
+    top: 50%;
+    margin-top: -18px;
+    text-indent: -9999px;
+    overflow: hidden;
+    outline: none;
+    z-index: 10;
+    background-color: #222;
+    opacity: 0.75;
+    -moz-transition: opacity 0.2s ease-in-out, width 0.2s ease-in-out; /* Firefox 4 */
+	-webkit-transition: opacity 0.2s ease-in-out, width 0.2s ease-in-out; /* Safari and Chrome */
+	-o-transition: opacity 0.2s ease-in-out, width 0.2s ease-in-out; /* Opera */
+	-ms-transition: opacity 0.2s ease-in-out, width 0.2s ease-in-out;
+	transition: opacity 0.2s ease-in-out, width 0.2s ease-in-out;
+}
+
+.viewer_menu .bt_prev:hover,
+.viewer_menu .bt_next:hover {
+	width: 24px;
+	opacity: 1;
+}
+
+.viewer_menu .bt_prev {
+    left: 5px;
+}
+
+.viewer_menu .bt_next {
+    right: 5px;
+}
+
+.js .viewer_menu .bt_prev:before,
+.js .viewer_menu .bt_next:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: 50%;
+    margin-top: -6px;
+    border: solid transparent;
+    border-width: 6px;
+}
+
+.js .viewer_menu .bt_prev:before {
+	right: 4px;
+    border-right-color: #fff;
+}
+
+.js .viewer_menu .bt_next:before {
+	left: 4px;
+    border-left-color: #fff;
+}
+
+/* Isotope CSS Animations
+================================================== */
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.6s;
+     -moz-transition-duration: 0.6s;
+      -ms-transition-duration: 0.6s;
+       -o-transition-duration: 0.6s;
+          transition-duration: 0.6s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:         top, left, opacity;
+          transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}

@@ -24,12 +24,13 @@
 	<?php } ?>
 </header>
 <!-- END page-heading -->
-
-<div id="post" class="post clearfix">   
-	<?php get_template_part( 'loop' , 'entry') ?>                	     
-	<?php pagination(); ?>
-</div>
-<!-- END post -->
-<?php endif; ?>
-<?php get_sidebar(); ?>	  
+<div class="row-fluid">
+	<div id="post" class="post span9 clearfix">   
+		<?php get_template_part( 'loop' , 'entry') ?>                	     
+		<?php pagination(); ?>
+	</div>
+	<!-- END post -->
+	<?php endif; ?>
+<?php get_sidebar(); ?>
+</div>	  
 <?php get_footer(); ?>

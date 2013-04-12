@@ -57,23 +57,25 @@ $options = get_option( 'adapt_theme_settings' );
 
 <div id="wrap" class="clearfix">
 
-    <header id="masterhead" class="clearfix">
-            <div id="logo">
+    <header id="masterhead" class="clearfix" role="banner">
+        <div class="container-fluid">
+            <div id="logo" class="brand">
                 <a href="<?php bloginfo( 'url' ); ?>/" title="Retour à la page d'accueil">
                     <img src="<?php bloginfo('template_directory');?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" />
                 </a>
             </div>
             <!-- END logo -->
             
-            <nav id="masternav" class="clearfix">
-                <?php wp_nav_menu( array(
-                    'theme_location' => 'menu',
-                    'sort_column' => 'menu_order',
-                    'menu_class' => 'sf-menu',
-                    'fallback_cb' => 'default_menu'
-                )); ?>
+            <nav id="masternav" class="clearfix" role="navigation">
+                <ul>
+                    <li><a href="<?php bloginfo( 'url' ); ?>">Accueil</a></li>
+                    <li><a href="<?php bloginfo( 'url' ); ?>/?cat=5">Articles</a></li>
+                    <li><a href="<?php bloginfo( 'url' ); ?>/?page_id=4">Portfolio</a></li>
+                    <li><a href="<?php bloginfo( 'url' ); ?>/?page_id=2">Page exemple</a></li>
+                </ul>
             </nav>
-            <!-- /masternav -->      
+            <!-- /masternav -->
+        </div>      
     </header><!-- /masterhead -->
     
-<div id="main" class="clearfix">
+<div id="main" class="container-fluid clearfix" role="main">

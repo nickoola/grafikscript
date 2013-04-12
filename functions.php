@@ -60,7 +60,9 @@ function adapt_scripts_function() {
 	*/
 	wp_enqueue_script('viewer', get_template_directory_uri() . '/js/jquery.viewer.js');
 	wp_enqueue_script('viewer_init', get_template_directory_uri() . '/js/viewer_init.js');
-	wp_enqueue_script('responsify', get_template_directory_uri() . '/js/jquery.responsify.init.js');
+	/*
+	wp_enqueue_script('responsify', get_template_directory_uri() . '/js/jquery.responsify.init.js')
+	*/
 	wp_enqueue_script('custom', get_template_directory_uri() . '/js/custom.js');
 
 	//portfolio main
@@ -76,16 +78,16 @@ function adapt_scripts_function() {
 /*-----------------------------------------------------------------------------------*/
 add_action('wp_enqueue_scripts', 'adapt_enqueue_css');
 function adapt_enqueue_css() {
-	
-	//responsive
+	wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.css', 'style');
+/*
 	wp_enqueue_style('responsive', get_template_directory_uri() . '/css/responsive.css', 'style');
 	
-	//prettyPhoto
+
 	wp_enqueue_style('prettyPhoto', get_template_directory_uri() . '/css/prettyPhoto.css', 'style');
 
-	//awesome font - icon fonts
+
 	wp_enqueue_style('awesome-font', get_template_directory_uri() . '/css/awesome-font.css', 'style');
-	
+*/
 }
 
 
