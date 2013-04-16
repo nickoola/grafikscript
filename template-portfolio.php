@@ -54,7 +54,7 @@
             
 			//show item if thumbnail is defined
 			if ( has_post_thumbnail() ) {  ?>
-            <article class="portfolio-item <?php if($terms) foreach ($terms as $term) echo $term->slug .' '; ?>">
+            <article class="portfolio-item box <?php if($terms) foreach ($terms as $term) echo $term->slug .' '; ?>">
             	<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                 	<img src="<?php echo $thumbail[0]; ?>" height="<?php echo $thumbail[2]; ?>" width="<?php echo $thumbail[1]; ?>" alt="<?php echo the_title(); ?>" />
             		<div class="portfolio-overlay"><h3><?php echo the_title(); ?></h3></div><!-- portfolio-overlay -->

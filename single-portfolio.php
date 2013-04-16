@@ -8,9 +8,9 @@
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>   
 
 <article>
-    <header id="page-heading">
+    <header id="page-heading" class="clearfix">
         <h1><?php the_title(); ?></h1>
-        <nav id="single-nav" class="clearfix">
+        <nav id="single-nav">
             <ul> 
                 <?php next_post_link('<li id="single-nav-left">%link</li>', '<span class="awesome-icon-chevron-left"></span> '.__('Précédent','adapt').'', false); ?>
                 <?php previous_post_link('<li id="single-nav-right">%link</li>', ''.__('Suivant','adapt').' <span class="awesome-icon-chevron-right"></span>', false); ?>

@@ -7,7 +7,7 @@
 <?php get_header(); ?>
 <?php if (have_posts()) : ?>
 
-<header id="page-heading">
+<header id="page-heading" class="clearfix">
 	<?php $post = $posts[0]; ?>
 	<?php if (is_category()) { ?>
 	<h1><?php single_cat_title(); ?></h1>

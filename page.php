@@ -8,13 +8,13 @@
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 
-<header id="page-heading">
+<header id="page-heading" class="clearfix">
     <h1><?php the_title(); ?></h1>		
 </header>
 <!-- /page-heading -->
 <div class="row-fluid">
 	<div class="span9">
-		<article class="post clearfix">
+		<article class="post box clearfix">
 		    <div class="entry clearfix">	
 		    	<?php the_content(); ?> 
 			</div>

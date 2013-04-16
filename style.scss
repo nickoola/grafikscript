@@ -9,8 +9,9 @@
 */
 
 /*google font*/
+/*
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800);
-
+*/
 $grey:#222;
 $lightgrey:#eaeaea;
 $blue:#2ab3ef;
@@ -33,6 +34,44 @@ $blue:#2ab3ef;
     transition: background-color $time ease-in-out;
 }
 
+@mixin shadow($hpos: 0px,$vpos: 1px,$blurradius: 5px,$opac: 0.75) {
+    -webkit-box-shadow: $hpos $vpos $blurradius rgba(0, 0, 0, $opac);
+    -moz-box-shadow: $hpos $vpos $blurradius rgba(0, 0, 0, $opac);
+    box-shadow: $hpos $vpos $blurradius rgba(0, 0, 0, $opac);
+}
+
+@mixin border-radius($angles: 4px) {
+    -webkit-border-radius: $angles;
+    -moz-border-radius: $angles;
+    border-radius: $angles;
+}
+
+/****** Sticky footer ******/
+
+html, body {
+    height: 100%;
+}
+
+/* Opera Fix */
+body:before {
+    content:"";
+    height: 100%;
+    float: left;
+    width: 0;
+    margin-top: -32767px;
+}
+
+#wrap{
+    min-height: 100%;
+    margin: 0 auto;
+}
+
+#main{
+    padding-bottom: 210px; /* Same padding bottom as height footer */
+}
+
+/********************/
+
 body {
     color: $grey;
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
@@ -43,7 +82,15 @@ body a {
     color: $blue;
 }
 
+.box {
+    padding: 20px;
+    margin-bottom: 20px;
+    background: #fff;
+    @include shadow();
+}
+
 /* header/footer */
+
 #masterhead,
 #footer {
     color: #fff;
@@ -101,7 +148,30 @@ body a {
     text-decoration: none;
 }
 
+/* Other nav */
+
+#single-nav,
+#portfolio-cats {
+    float: right;
+}
+
+#single-nav ul,
+#portfolio-cats {
+    list-style-type: none;
+}
+
+#single-nav li,
+#portfolio-cats li {
+    display: inline;
+}
+
+#single-nav li a,
+#portfolio-cats li a {
+    display: inline-block;
+}
+
 /* tagcloud */
+
 .tagcloud a {
     margin-bottom: 0.5em; /* 8px / 16px */
     margin-right: 0.5em;
@@ -116,6 +186,7 @@ body a {
 }
 #page-heading h1,
 #page-heading h2 {
+    float: left;
     margin: 0;
     line-height: 1.25em;
     font-size: 1.25em;/* 20px / 16px */
@@ -123,9 +194,55 @@ body a {
     text-transform: uppercase;
 }
 
+.single-title {
+    font-size: 30px;
+    font-weight: lighter;
+    line-height: 30px;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+/* Article/post */
+
+article.post .entry {
+    font-size: 0.875em; /* 14px/16px */
+    line-height: 1.4;
+}
+
+article.post .post-meta {
+    margin-bottom: 20px;
+    font-size: 0.8125em; /* 13px/16px */
+    color: lighten($grey,50%);
+}
+
+/* Comments */
+
+#commentsbox {
+    margin-top: 20px;
+}
+
+#comments {
+    padding: 10px 0;
+    border-top: 1px solid lighten($grey,70%);
+    border-bottom: 1px solid lighten($grey,70%);
+    font-size: 18px;
+    line-height: inherit;
+    color: lighten($grey,10%);
+    font-weight: lighter;
+    text-transform: uppercase;
+    
+}
+
+#comments-respond {
+    padding: 10px 0;
+    font-size: 16px;
+    line-height: inherit;
+}
+
 /*-----------------------------------------------------------------------------------*
 /* = Sidebar
 /*-----------------------------------------------------------------------------------*/
+
 .sidebar-box {
     margin-bottom: 10px;
     padding-bottom: 10px;
@@ -185,6 +302,8 @@ body a {
 
 #footer {
     position: relative;
+    min-height: 210px;
+    margin-top: -210px;
     color: darken(#fff,20%);
     background: #222;
 }
@@ -224,6 +343,119 @@ body a {
     width: 20%;
     float: right;
     text-align: right;
+}
+
+/*-----------------------------------------------------------------------------------*
+/* = Search Bar
+/*-----------------------------------------------------------------------------------*/
+#searchbar {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 4px;
+    color: #fff;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #222;
+}
+#searchbar label {
+    display: block;
+    position: absolute;
+    height: 0;
+    opacity: 0;
+}
+#search {
+    width: 82%;
+    height: inherit;
+    line-height: inherit;
+    margin-bottom: 0;
+    padding: 6px 4px;
+    outline: none;
+    border: 1px solid transparent;
+    color: #666;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 0.6875em;/* 11px / 16px */
+    background: #fff;
+    @include border-radius(0);
+}
+
+#searchbt {
+    width: 15%;
+    padding: 6px 0;
+    border: none;
+    color: #fff;
+    font-size: 0.6875em;
+    background-color: #222;
+    -moz-transition: background-color 0.4s ease-in-out; /* Firefox 4 */
+    -webkit-transition: background-color 0.4s ease-in-out; /* Safari and Chrome */
+    -o-transition: background-color 0.4s ease-in-out; /* Opera */
+    transition: background-color 0.4s ease-in-out;
+    cursor: pointer;
+}
+#searchbt:hover {
+    background: #2AB3EF;
+}
+
+/*-----------------------------------------------------------------------------------*
+/* = Portfolio
+/*-----------------------------------------------------------------------------------*/
+
+#portfolio-wrap {
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+.portfolio-content {
+    margin: 0 -0.9%;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* = Portfolio items
+/*-----------------------------------------------------------------------------------*/
+
+.portfolio-item {
+    float: left;
+    position: relative;
+    width: 23%;
+    margin: 10px 0.9%;
+    padding: 0;
+    background: #fff;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.portfolio-item a,
+.portfolio-item a img {
+    display: block;
+}
+.portfolio-item a {
+    position: relative;
+    border: 5px solid #fff;
+}
+.portfolio-item:hover a {
+    border-color: $blue;
+}
+.portfolio-item img {
+    width: 100%;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    width: 96%;
+    bottom: 0;
+    left: 0;
+    padding: 4% 2%;
+    background: #222;
+}
+
+.portfolio-overlay h3 {
+    font-size: 0.6875em;
+    font-weight: normal;
+    margin: 0;
+    color: #fff;
+    text-transform: uppercase;
 }
 
 /*-----------------------------------------------------------------------------------*/

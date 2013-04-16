@@ -10,7 +10,7 @@
 	query_posts($query_string .'&posts_per_page=10&paged=' . $paged);
 	if (have_posts()) : ?>
     
-	<header id="page-heading">
+	<header id="page-heading" class="clearfix">
 		<h1 id="archive-title"><?php _e('Search Results For', 'adapt'); ?>: <?php the_search_query(); ?></h1>
 	</header>
 	<!-- /page-heading -->
