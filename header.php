@@ -69,9 +69,9 @@ $options = get_option( 'adapt_theme_settings' );
             <nav id="masternav" class="clearfix" role="navigation">
                 <ul>
                     <li><a href="<?php bloginfo( 'url' ); ?>">Accueil</a></li>
-                    <li><a href="<?php bloginfo( 'url' ); ?>/?cat=5">Articles</a></li>
-                    <li><a href="<?php bloginfo( 'url' ); ?>/?page_id=4">Portfolio</a></li>
-                    <li><a href="<?php bloginfo( 'url' ); ?>/?page_id=2">Page exemple</a></li>
+                    <li><a href="<?php bloginfo( 'url' ); ?>/articles"<?php if(is_category() || is_single()){echo ' class="current"';} ?>>Articles</a></li>
+                    <li><a href="<?php bloginfo( 'url' ); ?>/portfolio" <?php if(is_page('Portfolio') || is_singular('portfolio')){echo ' class="current"';} ?>>Portfolio</a></li>
+                    <li><a href="<?php bloginfo( 'url' ); ?>/contact" <?php if(is_page('Contact')){echo ' class="current"';} ?>>Contact</a></li>
                 </ul>
             </nav>
             <!-- /masternav -->

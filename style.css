@@ -105,8 +105,7 @@ body a {
   transition: background-color 0.4s ease-in-out; }
 
 #masternav a:hover,
-#masternav .current-menu-item a,
-#masternav .current_page_item a {
+#masternav .current {
   background-color: #2ab3ef;
   text-decoration: none; }
 
@@ -156,17 +155,59 @@ body a {
   margin-top: 0;
   margin-bottom: 5px; }
 
-/* Article/post */
+/* Articles list */
+.loop-entry.box {
+  padding: 0; }
+
+.loop-entry header {
+  float: right;
+  width: 66%;
+  margin-right: 2%; }
+
+.loop-entry h2 {
+  margin: 10px 0 0 0;
+  font-size: 1.25em;
+  line-height: inherit; }
+
+.loop-entry h2 a {
+  color: #222222; }
+
+.loop-entry-meta {
+  margin-bottom: 5px; }
+
+.loop-entry p {
+  margin-right: 2%;
+  font-size: 0.8125em; }
+
+.loop-entry-thumbnail {
+  float: left;
+  width: 30%;
+  margin: 0 2% 0 0;
+  border: 2px solid #222222;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0; }
+
+.loop-entry-thumbnail img {
+  width: 100%; }
+
+/* Article/post single */
 article.post .entry {
   font-size: 0.875em;
   /* 14px/16px */
   line-height: 1.4; }
 
-article.post .post-meta {
-  margin-bottom: 20px;
+article.post .post-meta,
+.loop-entry-meta {
   font-size: 0.8125em;
   /* 13px/16px */
   color: #a2a2a2; }
+
+article.post .post-meta {
+  margin-bottom: 20px; }
 
 /* Comments */
 #commentsbox {
@@ -186,6 +227,50 @@ article.post .post-meta {
   padding: 10px 0;
   font-size: 16px;
   line-height: inherit; }
+
+/*-----------------------------------------------------------------------------------*
+/* = Pagination
+/*-----------------------------------------------------------------------------------*/
+.pagination {
+  position: relative;
+  margin: 40px 0 20px 0;
+  text-align: center; }
+
+.pagination:before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  width: 100%;
+  height: 2px;
+  background: #888888;
+  z-index: -1; }
+
+.pagination a,
+.pagination span {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 0.75em;
+  font-weight: bold;
+  border-top: 2px solid transparent; }
+
+.pagination a {
+  color: #222222;
+  -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  /* Firefox 4 */
+  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  /* Safari and Chrome */
+  -o-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  /* Opera */
+  -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  /* Opera */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; }
+
+.pagination .current,
+.pagination a:hover {
+  border-top-color: #3c3c3c;
+  background: #2ab3ef;
+  color: #fff; }
 
 /*-----------------------------------------------------------------------------------*
 /* = Sidebar
@@ -399,6 +484,7 @@ article.post .post-meta {
   background: #222; }
 
 .portfolio-overlay h3 {
+  line-height: inherit;
   font-size: 0.6875em;
   font-weight: normal;
   margin: 0;
@@ -406,8 +492,40 @@ article.post .post-meta {
   text-transform: uppercase; }
 
 /*-----------------------------------------------------------------------------------*/
+/* = Portfolio single
+/*-----------------------------------------------------------------------------------*/
+#single-portfolio.box {
+  padding-left: 0;
+  padding-right: 0; }
+
+#single-portfolio-left {
+  padding-left: 2.12766%; }
+
+#single-portfolio-right {
+  padding-right: 2.12766%; }
+
+#single-portfolio-right h1,
+#single-portfolio-right h2 {
+  margin-top: 0;
+  line-height: inherit;
+  font-size: 1.25em; }
+
+#single-portfolio-right p,
+#single-portfolio-right ul {
+  font-size: 0.8125em; }
+
+#single-portfolio-right ul {
+  margin-left: 15px; }
+
+#single-portfolio-right p {
+  line-height: 1.4; }
+
+/*-----------------------------------------------------------------------------------*/
 /* = Image Slider
 /*-----------------------------------------------------------------------------------*/
+.viewer ul {
+  margin: 0; }
+
 .viewer,
 .viewer_list {
   position: relative; }

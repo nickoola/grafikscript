@@ -26,12 +26,28 @@ $blue:#2ab3ef;
     margin-right: $dist;
 }
 
-@mixin anim-bg-color($time) {
+@mixin anim-bg-color($time: 0.4s) {
     -moz-transition: background-color $time ease-in-out; /* Firefox 4 */
     -webkit-transition: background-color $time ease-in-out; /* Safari and Chrome */
     -o-transition: background-color $time ease-in-out; /* Opera */
     -ms-transition: background-color $time ease-in-out; /* Opera */
     transition: background-color $time ease-in-out;
+}
+
+@mixin anim-text-color($time: 0.4s) {
+    -moz-transition: color $time ease-in-out; /* Firefox 4 */
+    -webkit-transition: color $time ease-in-out; /* Safari and Chrome */
+    -o-transition: color $time ease-in-out; /* Opera */
+    -ms-transition: color $time ease-in-out; /* Opera */
+    transition: color $time ease-in-out;
+}
+
+@mixin anim-bg-text-color($time: 0.4s) {
+    -moz-transition: background-color $time ease-in-out, color $time ease-in-out; /* Firefox 4 */
+    -webkit-transition: background-color $time ease-in-out, color $time ease-in-out; /* Safari and Chrome */
+    -o-transition: background-color $time ease-in-out, color $time ease-in-out; /* Opera */
+    -ms-transition: background-color $time ease-in-out, color $time ease-in-out; /* Opera */
+    transition: background-color $time ease-in-out, color $time ease-in-out;
 }
 
 @mixin shadow($hpos: 0px,$vpos: 1px,$blurradius: 5px,$opac: 0.75) {
@@ -44,6 +60,12 @@ $blue:#2ab3ef;
     -webkit-border-radius: $angles;
     -moz-border-radius: $angles;
     border-radius: $angles;
+}
+
+@mixin box-sizing($value) {
+    -moz-box-sizing: $value;
+    -webkit-box-sizing: $value;
+    box-sizing: $value;
 }
 
 /****** Sticky footer ******/
@@ -138,12 +160,11 @@ body a {
     padding: 0 1%;
     color: #fff;
     background-color: $grey;
-    @include anim-bg-color(0.4s);
+    @include anim-bg-color();
 }
 
 #masternav a:hover,
-#masternav .current-menu-item a,
-#masternav .current_page_item a {
+#masternav .current {
     background-color: $blue;
     text-decoration: none;
 }
@@ -202,17 +223,65 @@ body a {
     margin-bottom: 5px;
 }
 
-/* Article/post */
+/* Articles list */
+
+.loop-entry.box {
+    padding: 0;
+}
+
+.loop-entry header {
+    float: right;
+    width: 66%;
+    margin-right: 2%;
+}
+
+.loop-entry h2 {
+    margin: 10px 0 0 0;
+    font-size: 1.25em;
+    line-height: inherit;
+}
+
+.loop-entry h2 a {
+    color: $grey;
+}
+
+.loop-entry-meta {
+    margin-bottom: 5px;
+}
+
+.loop-entry p {
+    margin-right: 2%;
+    font-size: 0.8125em;
+}
+
+.loop-entry-thumbnail {
+    float: left;
+    width: 30%;
+    margin: 0 2% 0 0;
+    border: 2px solid $grey;
+    @include box-sizing(border-box);
+    @include border-radius(0);
+}
+
+.loop-entry-thumbnail img {
+    width: 100%;
+}
+
+/* Article/post single */
 
 article.post .entry {
     font-size: 0.875em; /* 14px/16px */
     line-height: 1.4;
 }
 
-article.post .post-meta {
-    margin-bottom: 20px;
+article.post .post-meta,
+.loop-entry-meta {
     font-size: 0.8125em; /* 13px/16px */
     color: lighten($grey,50%);
+}
+
+article.post .post-meta {
+    margin-bottom: 20px;
 }
 
 /* Comments */
@@ -237,6 +306,48 @@ article.post .post-meta {
     padding: 10px 0;
     font-size: 16px;
     line-height: inherit;
+}
+
+/*-----------------------------------------------------------------------------------*
+/* = Pagination
+/*-----------------------------------------------------------------------------------*/
+
+.pagination {
+    position: relative;
+    margin: 40px 0 20px 0;
+    text-align: center;
+}
+
+.pagination:before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    background: lighten($grey,40%);
+    z-index: -1;
+}
+
+.pagination a,
+.pagination span {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 0.75em;
+    font-weight: bold;
+    border-top: 2px solid transparent;
+}
+
+.pagination a {
+    color: $grey;
+    @include anim-bg-text-color(0.2s);
+}
+
+.pagination .current,
+.pagination a:hover {
+    border-top-color: lighten($grey,10%);
+    background: $blue;
+    color: #fff;
 }
 
 /*-----------------------------------------------------------------------------------*
@@ -354,9 +465,7 @@ article.post .post-meta {
     margin: 0;
     padding: 4px;
     color: #fff;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+    @include box-sizing(border-box);
     background: #222;
 }
 #searchbar label {
@@ -374,9 +483,7 @@ article.post .post-meta {
     outline: none;
     border: 1px solid transparent;
     color: #666;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+    @include box-sizing(border-box);
     font-size: 0.6875em;/* 11px / 16px */
     background: #fff;
     @include border-radius(0);
@@ -422,9 +529,7 @@ article.post .post-meta {
     margin: 10px 0.9%;
     padding: 0;
     background: #fff;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+    @include box-sizing(border-box);
 }
 .portfolio-item a,
 .portfolio-item a img {
@@ -451,6 +556,7 @@ article.post .post-meta {
 }
 
 .portfolio-overlay h3 {
+    line-height: inherit;
     font-size: 0.6875em;
     font-weight: normal;
     margin: 0;
@@ -459,9 +565,48 @@ article.post .post-meta {
 }
 
 /*-----------------------------------------------------------------------------------*/
-/* = Image Slider
+/* = Portfolio single
 /*-----------------------------------------------------------------------------------*/
 
+#single-portfolio.box {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#single-portfolio-left {
+    padding-left: 2.12766%;
+}
+
+#single-portfolio-right {
+    padding-right: 2.12766%;
+}
+
+#single-portfolio-right h1,
+#single-portfolio-right h2 {
+    margin-top: 0;
+    line-height: inherit;
+    font-size: 1.25em;
+}
+
+#single-portfolio-right p,
+#single-portfolio-right ul {
+    font-size: 0.8125em;
+}
+
+#single-portfolio-right ul {
+    margin-left: 15px;
+}
+
+#single-portfolio-right p {
+    line-height: 1.4;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* = Image Slider
+/*-----------------------------------------------------------------------------------*/
+.viewer ul {
+    margin: 0; 
+}
 .viewer,
 .viewer_list {
     position: relative;
@@ -473,9 +618,7 @@ article.post .post-meta {
     background: #222;
     border: 5px solid #222;
     border-radius: 3px;
-    -moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+    @include box-sizing(border-box);
     box-shadow: inset 0 0 2px rgba(0,0,0,0.75);
 }
 

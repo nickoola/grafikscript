@@ -20,7 +20,7 @@
     </header>
     <!-- /page-heading -->
     
-    <div id="single-portfolio" class="post row-fluid clearfix">
+    <div id="single-portfolio" class="post row-fluid box clearfix">
         
         <div id="single-portfolio-left" class="span8">
             <div class="viewer_container">
