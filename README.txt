@@ -1,6 +1,7 @@
 
 
 ************** ABOUt ***********************
+- Plop
 
 - This theme was created by WPExplorer.com and was released for free under the GPL license.
 
