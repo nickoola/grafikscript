@@ -12,9 +12,13 @@
 /*
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800);
 */
+
 $grey:#222;
 $lightgrey:#eaeaea;
 $blue:#2ab3ef;
+$notif:#F00;
+$success:#F00;
+$error:#F00;
 
 @mixin floatleft($dist) {
     float: left;
@@ -38,7 +42,7 @@ $blue:#2ab3ef;
     -moz-transition: color $time ease-in-out; /* Firefox 4 */
     -webkit-transition: color $time ease-in-out; /* Safari and Chrome */
     -o-transition: color $time ease-in-out; /* Opera */
-    -ms-transition: color $time ease-in-out; /* Opera */
+    -ms-transition: color $time ease-in-out; /* IE */
     transition: color $time ease-in-out;
 }
 
@@ -46,7 +50,7 @@ $blue:#2ab3ef;
     -moz-transition: background-color $time ease-in-out, color $time ease-in-out; /* Firefox 4 */
     -webkit-transition: background-color $time ease-in-out, color $time ease-in-out; /* Safari and Chrome */
     -o-transition: background-color $time ease-in-out, color $time ease-in-out; /* Opera */
-    -ms-transition: background-color $time ease-in-out, color $time ease-in-out; /* Opera */
+    -ms-transition: background-color $time ease-in-out, color $time ease-in-out; /* IE */
     transition: background-color $time ease-in-out, color $time ease-in-out;
 }
 
@@ -66,6 +70,15 @@ $blue:#2ab3ef;
     -moz-box-sizing: $value;
     -webkit-box-sizing: $value;
     box-sizing: $value;
+}
+
+@mixin notif($color){
+    padding: 10px;
+    margin: 10px;
+    background: $color;
+    color: #fff;
+    border: 1px solid darken($color,50%);
+    @include border-radius(10px);
 }
 
 /****** Sticky footer ******/
@@ -109,6 +122,18 @@ body a {
     margin-bottom: 20px;
     background: #fff;
     @include shadow();
+}
+
+.notification {
+    @include notif($notif);
+}
+
+.success {
+    @include notif($success);
+}
+
+.error {
+    @include notif($error);
 }
 
 /* header/footer */
